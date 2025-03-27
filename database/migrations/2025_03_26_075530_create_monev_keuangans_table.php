@@ -20,6 +20,7 @@ return new class extends Migration
             $table->double('realisasi');
             $table->text('evaluasi')->nullable();
             $table->string('pic');
+            $table->string('file');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');

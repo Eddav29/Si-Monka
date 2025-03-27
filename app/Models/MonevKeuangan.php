@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class MonevKeuangan extends Model
 {
     use HasFactory;
 
-    protected $table = 'monev_keuangan';
+    protected $table = 'monev_keuangans';
     protected $fillable = [
         'pekerjaan_id', 'jenis_monitoring', 'status_monitoring',
-        'program', 'realisasi', 'evaluasi', 'pic', 'user_id',
+        'program', 'realisasi', 'evaluasi', 'pic', 'file', 'user_id',
         'tanggal_mulai', 'tanggal_selesai'
     ];
 
@@ -26,8 +27,15 @@ class MonevKeuangan extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function jenisMonitoring()
+    /**
+     * file
+     *
+     * @return Attribute
+     */
+    protected function file(): Attribute
     {
-        return $this->belongsTo(JenisMonitoring::class, 'jenis_monitoring');
+        return Attribute::make(
+            get: fn ($file) => url('/storage/products/' . $file),
+        );
     }
 }
