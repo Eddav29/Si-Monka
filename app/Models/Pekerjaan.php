@@ -9,7 +9,7 @@ class Pekerjaan extends Model
 {
     use HasFactory;
 
-    protected $table = 'pekerjaan';
+    protected $table = 'pekerjaans';
     protected $fillable = [
         'nama_pekerjaan', 'volume', 'satuan', 'sumber_keterangan',
         'sub_unit', 'jenis_op', 'nilai_paket_pekerjaan', 'jadwal_mulai',

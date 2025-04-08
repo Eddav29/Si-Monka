@@ -9,7 +9,7 @@ class Keuangan extends Model
 {
     use HasFactory;
 
-    protected $table = 'keuangan';
+    protected $table = 'keuangans';
     protected $fillable = [
         'pekerjaan_id', 'rkap', 'rkapt', 'pjpsda', 'rab',
         'nomor_io', 'real_kontrak', 'nilai_progres', 'actual_spj',
