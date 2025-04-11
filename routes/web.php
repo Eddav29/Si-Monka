@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,15 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     })->name('pages.pekerjaan');
 
     // Pengguna route
-    Route::get('/pengguna', function () {
-        return view('pages.pengguna');
-    })->name('pages.pengguna');
+    Route::resource('pengguna', PenggunaController::class)->names([
+        'index' => 'pages.pengguna',
+        'show' => 'pages.pengguna.show',
+        'create' => 'pages.pengguna.create',
+        'store' => 'pages.pengguna.store',
+        'edit' => 'pages.pengguna.edit',
+        'update' => 'pages.pengguna.update',
+        'destroy' => 'pages.pengguna.destroy',
+    ]);
 
     // Keuangan routes
     Route::prefix('keuangan')->name('pages.keuangan.')->group(function() {
@@ -50,6 +57,5 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::get('/jadwal-program', function () {
         return view('pages.jadwal-program');
     })->name('pages.jadwal-program');
-
 
 });
