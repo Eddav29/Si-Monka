@@ -53,6 +53,11 @@ class PenggunaController extends Controller
         }
     }
 
+    public function create(): Response
+    {
+        return response()->view('pages.pengguna.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -96,6 +101,24 @@ class PenggunaController extends Controller
                 'message' => 'Failed to create user',
                 'error' => $e->getMessage()
             ], 500);
+        }
+    }
+
+    public function edit(string $id): Response
+    {
+        try {
+            $user = User::findOrFail($id);
+            
+            return response()->view('pages.pengguna.edit', [
+                'data' => $data['data'] ?? [],
+            ]);
+        } catch (Exception $e) {
+            // Redirect back to index with error message
+            return response()->view('pages.pengguna.index', [
+                'status' => 'error',
+                'message' => 'User not found',
+                'error' => $e->getMessage()
+            ], 404);    
         }
     }
 
