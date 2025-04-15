@@ -1,49 +1,41 @@
-version: "3.7"
+version: '3.8'
+
 services:
   app:
     build:
-      args:
-        user: sammy
-        uid: 1000
-      context: ./
+      context: .
       dockerfile: Dockerfile
-    image: mazer
-    container_name: mazer-app
-    restart: unless-stopped
-    working_dir: /var/www/
-    volumes:
-      - ./:/var/www
-    networks:
-      - mazer
-
-  db:
-    image: mysql:8.0
-    container_name: mazer-db
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: mazer
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: root
-      MYSQL_USER: mazer
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    volumes:
-      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
-    networks:
-      - mazer
-
-  nginx:
-    image: nginx:alpine
-    container_name: mazer-nginx
-    restart: unless-stopped
+    container_name: si-monka
     ports:
-      - 8000:80
+      - "8000:8000"
+      - "5173:5173"
     volumes:
-      - ./:/var/www
-      - ./docker-compose/nginx:/etc/nginx/conf.d/
-    networks:
-      - mazer
+      - .:/var/www
+    depends_on:
+      - mysql
 
-networks:
-  mazer:
-    driver: bridge
+  mysql:
+    image: mysql:8.0
+    container_name: si-monka-mysql
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: si-monka-pma
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: laravel
+      PMA_PASSWORD: root
+
+volumes:
+  mysql_data:

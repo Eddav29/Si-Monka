@@ -18,13 +18,13 @@ class PenggunaController extends Controller
      */
     public function index(): Response
     {
-            $result = $this->list();
+            $data = $this->list();
             
             // Check if response content is empty before decoding
-            if (empty($result->getContent())) {
+            if (empty($data->getContent())) {
                 $data = [];
             } else {
-                $data = json_decode($result->getContent(), true);
+                $data = json_decode($data->getContent(), true);
             }
             
             return response()->view('pages.pengguna.index',[
@@ -39,7 +39,7 @@ class PenggunaController extends Controller
     public function list(): JsonResponse
     {
         try {
-            $users = User::paginate(10);
+            $users = User::orderBy('updated_at', 'desc')->get();
             return response()->json([
                 'status' => 'success',
                 'data' => $users,
@@ -51,6 +51,11 @@ class PenggunaController extends Controller
                 'error' => $e->getMessage()
             ], 500);
         }
+    }
+
+    public function create(): Response
+    {
+        return response()->view('pages.pengguna.create');
     }
 
     /**
@@ -79,6 +84,7 @@ class PenggunaController extends Controller
                 'nama' => $request->nama,
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
+
                 // Add other fields as needed
             ]);
 
@@ -95,6 +101,24 @@ class PenggunaController extends Controller
                 'message' => 'Failed to create user',
                 'error' => $e->getMessage()
             ], 500);
+        }
+    }
+
+    public function edit(string $id): Response
+    {
+        try {
+            $user = User::findOrFail($id);
+            
+            return response()->view('pages.pengguna.edit', [
+                'data' => $data['data'] ?? [],
+            ]);
+        } catch (Exception $e) {
+            // Redirect back to index with error message
+            return response()->view('pages.pengguna.index', [
+                'status' => 'error',
+                'message' => 'User not found',
+                'error' => $e->getMessage()
+            ], 404);    
         }
     }
 

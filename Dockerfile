@@ -1,34 +1,29 @@
-FROM php:8.1-fpm
-
-# Arguments defined in docker-compose.yml
-ARG user
-ARG uid
+FROM php:8.3-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip
-
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    zip unzip git curl libzip-dev libpng-dev libonig-dev libxml2-dev \
+    npm nodejs supervisor
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+RUN docker-php-ext-install pdo_mysql zip mbstring
 
-# Get latest Composer
+# Install Node.js & npm
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+  && apt-get install -y nodejs
+
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
-
-# Set working directory
 WORKDIR /var/www
 
-USER $user
+RUN mkdir -p /var/www/storage/logs
+
+# Use supervisor to run multiple processes (php artisan serve + npm run dev)
+COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+
+# Expose Laravel and Vite ports
+EXPOSE 8000 5173
+
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
