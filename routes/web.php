@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PenggunaController;
+use App\Http\Controllers\API\PekerjaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,17 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
     // Pekerjaan route
-    Route::get('/pekerjaan', function () {
-        return view('pages.pekerjaan');
-    })->name('pages.pekerjaan');
+    Route::resource('pekerjaan', PekerjaanController::class)->names([
+        'index' => 'pages.pekerjaan',
+        'show' => 'pages.pekerjaan.show',
+        'create' => 'pages.pekerjaan.create',
+        'store' => 'pages.pekerjaan.store',
+        'edit' => 'pages.pekerjaan.edit',
+        'update' => 'pages.pekerjaan.update',
+        'destroy' => 'pages.pekerjaan.destroy',
+    ]);
 
     // Pengguna route
     Route::resource('pengguna', PenggunaController::class)->names([
