@@ -9,8 +9,8 @@
     
     <!--keuangan-->
     <x-maz-sidebar-item name="Keuangan" icon="bi bi-currency-dollar">
-        <x-maz-sidebar-sub-item name="Monev - Keuangan" :link="route('pages.keuangan.monev-keuangan')" icon="bi bi-graph-up"></x-maz-sidebar-sub-item>
-        <x-maz-sidebar-sub-item name="Data - Keuangan" :link="route('pages.keuangan.data-keuangan')" icon="bi bi-file-earmark-spreadsheet"></x-maz-sidebar-sub-item>
+        <x-maz-sidebar-sub-item name="Monev-Keuangan" :link="route('pages.keuangan.monev-keuangan')" icon="bi bi-graph-up"></x-maz-sidebar-sub-item>
+        <x-maz-sidebar-sub-item name="Data-Keuangan" :link="route('pages.keuangan.data-keuangan')" icon="bi bi-file-earmark-spreadsheet"></x-maz-sidebar-sub-item>
     </x-maz-sidebar-item>
     
     <!--Program-->

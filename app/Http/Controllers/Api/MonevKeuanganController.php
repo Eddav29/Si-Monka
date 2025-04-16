@@ -4,14 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Program;
+use App\Models\MonevKeuangan;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use Exception;
 
-class ProgramController extends Controller
+class MonevKeuanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,22 +28,25 @@ class ProgramController extends Controller
             $data = json_decode($data->getContent(), true);
         }
         
-        return response()->view('pages.program.index', [
+        return response()->view('pages.keuangan.monev-keuangan.index', [
             'status' => 'success',
             'data' => $data['data'] ?? []
         ]);
     }
 
     /**
-     * Get list of programs with pagination.
+     * Get list of monitoring keuangan with pagination.
      */
     public function list(): JsonResponse
     {
         try {
-            $programs = Program::with('pekerjaan')->orderBy('updated_at', 'desc')->get();
+            $monevKeuangans = MonevKeuangan::with(['pekerjaan', 'user'])
+                ->orderBy('updated_at', 'desc')
+                ->get();
+                
             return response()->json([
                 'status' => 'success',
-                'data' => $programs,
+                'data' => $monevKeuangans,
             ]);
         } catch (Exception $e) {
             return response()->json([
@@ -58,7 +62,7 @@ class ProgramController extends Controller
      */
     public function create(): Response
     {
-        return response()->view('pages.program.create');
+        return response()->view('pages.keuangan.monev-keuangan.create');
     }
 
     /**
@@ -70,9 +74,16 @@ class ProgramController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'pekerjaan_id' => 'required|exists:pekerjaans,id',
-                'pelaksanaan_program' => 'required|string',
-                'status_program' => 'required|string',
-                'realisasi_program' => 'required|string',
+                'jenis_monitoring' => 'required|in:perencanaan,verifikasi,pengadaan,pelaksanaan,laporan',
+                'status_monitoring' => 'required|in:Belum Dimulai,Sedang Berjalan,Selesai',
+                'program' => 'required|numeric',
+                'realisasi' => 'required|numeric',
+                'evaluasi' => 'nullable|string',
+                'pic' => 'required|string',
+                'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png|max:10240',
+                'user_id' => 'required|exists:users,id',
+                'tanggal_mulai' => 'required|date',
+                'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
             ]);
 
             if ($validator->fails()) {
@@ -83,47 +94,38 @@ class ProgramController extends Controller
                 ], 422);
             }
 
-            $program = Program::create([
+            // Handle file upload
+            $file = $request->file('file');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('monev_keuangan', $fileName, 'public');
+
+            $monevKeuangan = MonevKeuangan::create([
                 'pekerjaan_id' => $request->pekerjaan_id,
-                'pelaksanaan_program' => $request->pelaksanaan_program,
-                'status_program' => $request->status_program,
-                'realisasi_program' => $request->realisasi_program,
+                'jenis_monitoring' => $request->jenis_monitoring,
+                'status_monitoring' => $request->status_monitoring,
+                'program' => $request->program,
+                'realisasi' => $request->realisasi,
+                'evaluasi' => $request->evaluasi,
+                'pic' => $request->pic,
+                'file' => $filePath,
+                'user_id' => $request->user_id,
+                'tanggal_mulai' => $request->tanggal_mulai,
+                'tanggal_selesai' => $request->tanggal_selesai,
             ]);
 
             DB::commit();
             return response()->json([
                 'status' => 'success',
-                'message' => 'Program created successfully',
-                'data' => $program
+                'message' => 'Monitoring keuangan created successfully',
+                'data' => $monevKeuangan
             ], 201);
         } catch (Exception $e) {
             DB::rollBack();
             return response()->json([
                 'status' => 'error',
-                'message' => 'Failed to create program',
+                'message' => 'Failed to create monitoring keuangan',
                 'error' => $e->getMessage()
             ], 500);
-        }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id): Response
-    {
-        try {
-            $program = Program::findOrFail($id);
-            
-            return response()->view('pages.program.edit', [
-                'data' => $program,
-            ]);
-        } catch (Exception $e) {
-            // Redirect back to index with error message
-            return response()->view('pages.program.index', [
-                'status' => 'error',
-                'message' => 'Program not found',
-                'error' => $e->getMessage()
-            ], 404);    
         }
     }
 
@@ -133,20 +135,41 @@ class ProgramController extends Controller
     public function show(string $id): JsonResponse
     {
         try {
-            $program = Program::with('pekerjaan')->findOrFail($id);
+            $monevKeuangan = MonevKeuangan::with(['pekerjaan', 'user'])->findOrFail($id);
             
             return response()->json([
                 'status' => 'success',
-                'data' => $program
+                'data' => $monevKeuangan
             ]);
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
                 'message' => $e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException 
-                    ? 'Program not found' 
-                    : 'Failed to retrieve program',
+                    ? 'Monitoring keuangan not found' 
+                    : 'Failed to retrieve monitoring keuangan',
                 'error' => $e->getMessage()
             ], $e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException ? 404 : 500);
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id): Response
+    {
+        try {
+            $monevKeuangan = MonevKeuangan::findOrFail($id);
+            
+            return response()->view('pages.keuangan.monev-keuangan.edit', [
+                'data' => $monevKeuangan,
+            ]);
+        } catch (Exception $e) {
+            // Redirect back to index with error message
+            return response()->view('pages.keuangan.monev-keuangan.index', [
+                'status' => 'error',
+                'message' => 'Monitoring keuangan not found',
+                'error' => $e->getMessage()
+            ], 404);    
         }
     }
 
@@ -157,20 +180,27 @@ class ProgramController extends Controller
     {
         DB::beginTransaction();
         try {
-            $program = Program::find($id);
+            $monevKeuangan = MonevKeuangan::find($id);
             
-            if (!$program) {
+            if (!$monevKeuangan) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'Program not found'
+                    'message' => 'Monitoring keuangan not found'
                 ], 404);
             }
 
             $validator = Validator::make($request->all(), [
                 'pekerjaan_id' => 'sometimes|exists:pekerjaans,id',
-                'pelaksanaan_program' => 'sometimes|string',
-                'status_program' => 'sometimes|string',
-                'realisasi_program' => 'sometimes|string',
+                'jenis_monitoring' => 'sometimes|in:perencanaan,verifikasi,pengadaan,pelaksanaan,laporan',
+                'status_monitoring' => 'sometimes|in:Belum Dimulai,Sedang Berjalan,Selesai',
+                'program' => 'sometimes|numeric',
+                'realisasi' => 'sometimes|numeric',
+                'evaluasi' => 'nullable|string',
+                'pic' => 'sometimes|string',
+                'file' => 'sometimes|file|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png|max:10240',
+                'user_id' => 'sometimes|exists:users,id',
+                'tanggal_mulai' => 'sometimes|date',
+                'tanggal_selesai' => 'sometimes|date|after_or_equal:tanggal_mulai',
             ]);
 
             if ($validator->fails()) {
@@ -181,19 +211,45 @@ class ProgramController extends Controller
                 ], 422);
             }
 
-            $program->update($request->all());
+            // Update file if a new one is uploaded
+            if ($request->hasFile('file')) {
+                // Delete old file
+                if ($monevKeuangan->file) {
+                    Storage::disk('public')->delete($monevKeuangan->file);
+                }
+                
+                // Store new file
+                $file = $request->file('file');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $filePath = $file->storeAs('monev_keuangan', $fileName, 'public');
+                $monevKeuangan->file = $filePath;
+            }
+
+            // Update other fields
+            $monevKeuangan->pekerjaan_id = $request->pekerjaan_id ?? $monevKeuangan->pekerjaan_id;
+            $monevKeuangan->jenis_monitoring = $request->jenis_monitoring ?? $monevKeuangan->jenis_monitoring;
+            $monevKeuangan->status_monitoring = $request->status_monitoring ?? $monevKeuangan->status_monitoring;
+            $monevKeuangan->program = $request->program ?? $monevKeuangan->program;
+            $monevKeuangan->realisasi = $request->realisasi ?? $monevKeuangan->realisasi;
+            $monevKeuangan->evaluasi = $request->evaluasi ?? $monevKeuangan->evaluasi;
+            $monevKeuangan->pic = $request->pic ?? $monevKeuangan->pic;
+            $monevKeuangan->user_id = $request->user_id ?? $monevKeuangan->user_id;
+            $monevKeuangan->tanggal_mulai = $request->tanggal_mulai ?? $monevKeuangan->tanggal_mulai;
+            $monevKeuangan->tanggal_selesai = $request->tanggal_selesai ?? $monevKeuangan->tanggal_selesai;
+            
+            $monevKeuangan->save();
 
             DB::commit();
             return response()->json([
                 'status' => 'success',
-                'message' => 'Program updated successfully',
-                'data' => $program
+                'message' => 'Monitoring keuangan updated successfully',
+                'data' => $monevKeuangan
             ]);
         } catch (Exception $e) {
             DB::rollBack();
             return response()->json([
                 'status' => 'error',
-                'message' => 'Failed to update program',
+                'message' => 'Failed to update monitoring keuangan',
                 'error' => $e->getMessage()
             ], 500);
         }
@@ -206,27 +262,32 @@ class ProgramController extends Controller
     {
         DB::beginTransaction();
         try {
-            $program = Program::find($id);
+            $monevKeuangan = MonevKeuangan::find($id);
             
-            if (!$program) {
+            if (!$monevKeuangan) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'Program not found'
+                    'message' => 'Monitoring keuangan not found'
                 ], 404);
             }
 
-            $program->delete();
+            // Delete associated file
+            if ($monevKeuangan->file) {
+                Storage::disk('public')->delete($monevKeuangan->file);
+            }
+
+            $monevKeuangan->delete();
             
             DB::commit();
             return response()->json([
                 'status' => 'success',
-                'message' => 'Program deleted successfully'
+                'message' => 'Monitoring keuangan deleted successfully'
             ]);
         } catch (Exception $e) {
             DB::rollBack();
             return response()->json([
                 'status' => 'error',
-                'message' => 'Failed to delete program',
+                'message' => 'Failed to delete monitoring keuangan',
                 'error' => $e->getMessage()
             ], 500);
         }

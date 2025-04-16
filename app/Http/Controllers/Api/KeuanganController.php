@@ -27,7 +27,7 @@ class KeuanganController extends Controller
             $data = json_decode($data->getContent(), true);
         }
         
-        return response()->view('pages.keuangan.index', [
+        return response()->view('pages.keuangan.data-keuangan.index', [
             'status' => 'success',
             'data' => $data['data'] ?? []
         ]);
@@ -61,7 +61,7 @@ class KeuanganController extends Controller
      */
     public function create(): Response
     {
-        return response()->view('pages.keuangan.create');
+        return response()->view('pages.keuangan.data-keuangan.create');
     }
 
     /**
@@ -154,12 +154,12 @@ class KeuanganController extends Controller
         try {
             $keuangan = Keuangan::findOrFail($id);
             
-            return response()->view('pages.keuangan.edit', [
+            return response()->view('pages.keuangan.data-keuangan.edit', [
                 'data' => $keuangan,
             ]);
         } catch (Exception $e) {
             // Redirect back to index with error message
-            return response()->view('pages.keuangan.index', [
+            return response()->view('pages.keuangan.data-keuangan.index', [
                 'status' => 'error',
                 'message' => 'Keuangan data not found',
                 'error' => $e->getMessage()

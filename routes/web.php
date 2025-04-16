@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PenggunaController;
 use App\Http\Controllers\Api\PekerjaanController;
 use App\Http\Controllers\Api\MonevKeuanganController;
-use App\Http\Controllers\Api\DataKeuanganController;
 use App\Http\Controllers\Api\ProgramController;
 use App\Http\Controllers\Api\JadwalProgramController;
 use App\Http\Controllers\Api\KeuanganController;
@@ -61,7 +60,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
         'destroy' => 'pages.keuangan.monev-keuangan.destroy',
     ]);
 
-    Route::resource('keuangan/data-keuangan', DataKeuanganController::class)->names([
+    Route::resource('keuangan/data-keuangan', KeuanganController::class)->names([
         'index' => 'pages.keuangan.data-keuangan',
         'show' => 'pages.keuangan.data-keuangan.show',
         'create' => 'pages.keuangan.data-keuangan.create',
