@@ -344,3 +344,399 @@
 2025-04-15 02:06:14,339 INFO waiting for laravel-server, laravel-vite to die
 2025-04-15 02:06:15,343 WARN stopped: laravel-vite (terminated by SIGTERM)
 2025-04-15 02:06:16,347 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 00:06:28,737 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 00:06:28,744 INFO supervisord started with pid 1
+2025-04-16 00:06:29,748 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 00:06:29,753 INFO spawned: 'laravel-vite' with pid 8
+2025-04-16 00:06:31,349 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:06:31,349 INFO success: laravel-vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:06:33,287 WARN received SIGQUIT indicating exit request
+2025-04-16 00:06:33,288 INFO waiting for laravel-server, laravel-vite to die
+2025-04-16 00:06:34,290 WARN stopped: laravel-vite (terminated by SIGTERM)
+2025-04-16 00:06:35,293 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 00:12:15,951 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 00:12:15,960 INFO supervisord started with pid 1
+2025-04-16 00:12:16,968 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 00:12:16,974 INFO spawned: 'laravel-vite' with pid 8
+2025-04-16 00:12:18,910 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:12:18,911 INFO success: laravel-vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:12:37,613 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:12:38,619 INFO spawned: 'laravel-server' with pid 51
+2025-04-16 00:12:39,622 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:12:53,704 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:12:54,710 INFO spawned: 'laravel-server' with pid 55
+2025-04-16 00:12:55,713 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:13:10,819 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:13:11,834 INFO spawned: 'laravel-server' with pid 59
+2025-04-16 00:13:12,837 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:13:26,031 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:13:27,038 INFO spawned: 'laravel-server' with pid 63
+2025-04-16 00:13:28,040 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:13:41,236 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:13:41,637 INFO spawned: 'laravel-server' with pid 67
+2025-04-16 00:13:42,641 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:13:55,097 INFO reaped unknown pid 38 (exit status 0)
+2025-04-16 00:13:56,975 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:13:57,984 INFO spawned: 'laravel-server' with pid 110
+2025-04-16 00:13:59,246 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:14:14,551 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:14:15,557 INFO spawned: 'laravel-server' with pid 117
+2025-04-16 00:14:16,559 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:14:31,185 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:14:32,191 INFO spawned: 'laravel-server' with pid 121
+2025-04-16 00:14:33,194 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:14:50,075 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:14:51,084 INFO spawned: 'laravel-server' with pid 135
+2025-04-16 00:14:52,088 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:15:07,223 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:15:08,229 INFO spawned: 'laravel-server' with pid 139
+2025-04-16 00:15:09,232 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:15:24,339 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:15:25,346 INFO spawned: 'laravel-server' with pid 143
+2025-04-16 00:15:26,349 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:15:38,791 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:15:39,797 INFO spawned: 'laravel-server' with pid 147
+2025-04-16 00:15:40,799 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:15:55,100 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:15:56,107 INFO spawned: 'laravel-server' with pid 151
+2025-04-16 00:15:57,109 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:16:11,631 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:16:12,637 INFO spawned: 'laravel-server' with pid 155
+2025-04-16 00:16:13,640 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:16:26,603 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:16:27,610 INFO spawned: 'laravel-server' with pid 159
+2025-04-16 00:16:28,612 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:16:42,199 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:16:43,206 INFO spawned: 'laravel-server' with pid 163
+2025-04-16 00:16:44,208 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:16:57,828 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:16:58,834 INFO spawned: 'laravel-server' with pid 167
+2025-04-16 00:16:59,836 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:17:13,459 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:17:14,466 INFO spawned: 'laravel-server' with pid 171
+2025-04-16 00:17:15,469 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:17:32,300 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:17:33,306 INFO spawned: 'laravel-server' with pid 175
+2025-04-16 00:17:34,309 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:17:47,725 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:17:48,732 INFO spawned: 'laravel-server' with pid 179
+2025-04-16 00:17:49,734 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:18:02,917 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:18:03,923 INFO spawned: 'laravel-server' with pid 183
+2025-04-16 00:18:04,926 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:18:18,118 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:18:19,125 INFO spawned: 'laravel-server' with pid 187
+2025-04-16 00:18:20,127 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:18:33,966 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:18:34,973 INFO spawned: 'laravel-server' with pid 191
+2025-04-16 00:18:35,976 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:18:50,623 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:18:51,630 INFO spawned: 'laravel-server' with pid 195
+2025-04-16 00:18:52,632 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:19:06,210 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:19:07,216 INFO spawned: 'laravel-server' with pid 199
+2025-04-16 00:19:08,219 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:19:22,008 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:19:23,015 INFO spawned: 'laravel-server' with pid 203
+2025-04-16 00:19:24,018 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:19:38,598 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:19:39,604 INFO spawned: 'laravel-server' with pid 207
+2025-04-16 00:19:40,607 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:19:54,203 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:19:55,210 INFO spawned: 'laravel-server' with pid 211
+2025-04-16 00:19:56,213 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:20:09,875 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:20:10,882 INFO spawned: 'laravel-server' with pid 215
+2025-04-16 00:20:11,884 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:20:25,349 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:20:26,356 INFO spawned: 'laravel-server' with pid 219
+2025-04-16 00:20:27,359 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:20:40,854 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:20:41,860 INFO spawned: 'laravel-server' with pid 223
+2025-04-16 00:20:42,863 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:20:55,595 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:20:56,603 INFO spawned: 'laravel-server' with pid 227
+2025-04-16 00:20:57,609 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:21:11,254 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:21:12,261 INFO spawned: 'laravel-server' with pid 231
+2025-04-16 00:21:13,264 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:21:26,324 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:21:27,330 INFO spawned: 'laravel-server' with pid 235
+2025-04-16 00:21:28,332 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:21:41,608 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:21:42,614 INFO spawned: 'laravel-server' with pid 239
+2025-04-16 00:21:43,617 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:21:56,967 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:21:57,973 INFO spawned: 'laravel-server' with pid 243
+2025-04-16 00:21:58,976 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:22:12,335 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:22:13,341 INFO spawned: 'laravel-server' with pid 247
+2025-04-16 00:22:14,343 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:22:27,585 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:22:28,591 INFO spawned: 'laravel-server' with pid 251
+2025-04-16 00:22:29,594 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:22:42,610 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:22:43,616 INFO spawned: 'laravel-server' with pid 255
+2025-04-16 00:22:44,618 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:22:58,103 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:22:59,109 INFO spawned: 'laravel-server' with pid 259
+2025-04-16 00:23:00,111 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:23:13,622 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:23:14,628 INFO spawned: 'laravel-server' with pid 263
+2025-04-16 00:23:15,630 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:23:29,172 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:23:30,179 INFO spawned: 'laravel-server' with pid 267
+2025-04-16 00:23:31,181 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:23:44,737 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:23:45,744 INFO spawned: 'laravel-server' with pid 271
+2025-04-16 00:23:46,746 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:23:59,517 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:24:00,522 INFO spawned: 'laravel-server' with pid 275
+2025-04-16 00:24:01,525 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:24:15,188 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:24:16,195 INFO spawned: 'laravel-server' with pid 279
+2025-04-16 00:24:17,197 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:24:30,596 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:24:31,603 INFO spawned: 'laravel-server' with pid 283
+2025-04-16 00:24:32,605 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:24:45,131 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:24:46,138 INFO spawned: 'laravel-server' with pid 287
+2025-04-16 00:24:47,140 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:25:00,172 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:25:01,179 INFO spawned: 'laravel-server' with pid 291
+2025-04-16 00:25:02,181 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:25:16,072 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:25:17,079 INFO spawned: 'laravel-server' with pid 295
+2025-04-16 00:25:18,082 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:25:20,085 WARN received SIGQUIT indicating exit request
+2025-04-16 00:25:20,086 INFO waiting for laravel-server, laravel-vite to die
+2025-04-16 00:25:21,088 WARN stopped: laravel-vite (terminated by SIGTERM)
+2025-04-16 00:25:22,091 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 00:25:24,101 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 00:25:24,109 INFO supervisord started with pid 1
+2025-04-16 00:25:25,116 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 00:25:25,122 INFO spawned: 'laravel-vite' with pid 8
+2025-04-16 00:25:27,024 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:25:27,025 INFO success: laravel-vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:25:42,218 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:25:43,225 INFO spawned: 'laravel-server' with pid 47
+2025-04-16 00:25:44,227 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:25:59,970 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:26:00,977 INFO spawned: 'laravel-server' with pid 51
+2025-04-16 00:26:01,980 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:26:15,014 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:26:16,022 INFO spawned: 'laravel-server' with pid 55
+2025-04-16 00:26:17,025 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:26:30,287 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:26:31,101 INFO spawned: 'laravel-server' with pid 59
+2025-04-16 00:26:32,104 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:26:45,985 INFO reaped unknown pid 38 (exit status 0)
+2025-04-16 00:26:46,290 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:26:47,297 INFO spawned: 'laravel-server' with pid 102
+2025-04-16 00:26:48,303 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:27:03,953 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:27:04,960 INFO spawned: 'laravel-server' with pid 109
+2025-04-16 00:27:05,962 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:27:20,729 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:27:21,736 INFO spawned: 'laravel-server' with pid 113
+2025-04-16 00:27:22,738 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:27:38,149 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:27:39,158 INFO spawned: 'laravel-server' with pid 117
+2025-04-16 00:27:40,160 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:27:55,443 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:27:56,449 INFO spawned: 'laravel-server' with pid 121
+2025-04-16 00:27:57,451 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:28:11,682 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:28:12,690 INFO spawned: 'laravel-server' with pid 125
+2025-04-16 00:28:13,693 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:28:26,867 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:28:27,873 INFO spawned: 'laravel-server' with pid 129
+2025-04-16 00:28:28,876 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:28:45,429 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:28:46,437 INFO spawned: 'laravel-server' with pid 133
+2025-04-16 00:28:47,439 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:29:00,957 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:29:01,963 INFO spawned: 'laravel-server' with pid 137
+2025-04-16 00:29:02,965 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:29:16,909 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:29:17,917 INFO spawned: 'laravel-server' with pid 147
+2025-04-16 00:29:18,919 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:29:32,814 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:29:33,821 INFO spawned: 'laravel-server' with pid 152
+2025-04-16 00:29:34,823 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:29:47,182 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:29:48,188 INFO spawned: 'laravel-server' with pid 157
+2025-04-16 00:29:49,191 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:30:02,101 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:30:03,108 INFO spawned: 'laravel-server' with pid 163
+2025-04-16 00:30:04,110 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:30:18,251 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:30:19,257 INFO spawned: 'laravel-server' with pid 167
+2025-04-16 00:30:20,259 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:30:32,304 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:30:33,311 INFO spawned: 'laravel-server' with pid 171
+2025-04-16 00:30:34,314 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:30:46,785 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:30:47,791 INFO spawned: 'laravel-server' with pid 175
+2025-04-16 00:30:48,794 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:30:58,804 INFO reaped unknown pid 160 (exit status 0)
+2025-04-16 00:31:02,965 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:31:03,972 INFO spawned: 'laravel-server' with pid 215
+2025-04-16 00:31:04,975 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:31:19,839 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:31:20,847 INFO spawned: 'laravel-server' with pid 219
+2025-04-16 00:31:21,849 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:31:36,746 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:31:37,753 INFO spawned: 'laravel-server' with pid 223
+2025-04-16 00:31:38,756 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:31:51,536 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:31:52,542 INFO spawned: 'laravel-server' with pid 227
+2025-04-16 00:31:53,543 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:32:07,903 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:32:08,909 INFO spawned: 'laravel-server' with pid 231
+2025-04-16 00:32:09,911 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:32:19,924 INFO reaped unknown pid 207 (exit status 0)
+2025-04-16 00:32:24,272 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:32:25,279 INFO spawned: 'laravel-server' with pid 243
+2025-04-16 00:32:26,281 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:32:37,460 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:32:38,467 INFO spawned: 'laravel-server' with pid 249
+2025-04-16 00:32:39,469 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:32:51,121 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:32:52,127 INFO spawned: 'laravel-server' with pid 253
+2025-04-16 00:32:53,128 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:33:01,138 INFO reaped unknown pid 248 (exit status 0)
+2025-04-16 00:33:07,470 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:33:08,478 INFO spawned: 'laravel-server' with pid 293
+2025-04-16 00:33:09,481 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:33:15,489 WARN received SIGQUIT indicating exit request
+2025-04-16 00:33:15,490 INFO waiting for laravel-server, laravel-vite to die
+2025-04-16 00:33:16,494 WARN stopped: laravel-vite (terminated by SIGTERM)
+2025-04-16 00:33:17,497 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 00:39:27,898 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 00:39:27,908 INFO supervisord started with pid 1
+2025-04-16 00:39:28,916 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 00:39:28,922 INFO spawned: 'laravel-vite' with pid 8
+2025-04-16 00:39:30,889 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:39:30,890 INFO success: laravel-vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:39:31,891 WARN received SIGQUIT indicating exit request
+2025-04-16 00:39:31,892 INFO waiting for laravel-server, laravel-vite to die
+2025-04-16 00:39:32,402 WARN stopped: laravel-vite (terminated by SIGTERM)
+2025-04-16 00:39:32,403 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 00:39:34,159 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 00:39:34,166 INFO supervisord started with pid 1
+2025-04-16 00:39:35,173 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 00:39:35,178 INFO spawned: 'laravel-vite' with pid 8
+2025-04-16 00:39:36,898 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:39:36,898 INFO success: laravel-vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:39:51,325 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:39:52,332 INFO spawned: 'laravel-server' with pid 49
+2025-04-16 00:39:53,332 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:40:08,813 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:40:09,821 INFO spawned: 'laravel-server' with pid 54
+2025-04-16 00:40:10,823 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:40:23,441 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:40:24,448 INFO spawned: 'laravel-server' with pid 58
+2025-04-16 00:40:25,455 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:40:39,107 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:40:39,116 INFO spawned: 'laravel-server' with pid 62
+2025-04-16 00:40:40,119 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:40:55,084 INFO reaped unknown pid 38 (exit status 0)
+2025-04-16 00:40:55,457 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:40:56,463 INFO spawned: 'laravel-server' with pid 102
+2025-04-16 00:40:58,181 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:41:12,951 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:41:13,960 INFO spawned: 'laravel-server' with pid 111
+2025-04-16 00:41:14,965 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:41:29,857 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:41:30,865 INFO spawned: 'laravel-server' with pid 115
+2025-04-16 00:41:31,867 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:41:48,571 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:41:49,580 INFO spawned: 'laravel-server' with pid 119
+2025-04-16 00:41:50,582 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:42:06,046 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:42:07,053 INFO spawned: 'laravel-server' with pid 123
+2025-04-16 00:42:08,055 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:42:23,716 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:42:24,723 INFO spawned: 'laravel-server' with pid 127
+2025-04-16 00:42:25,726 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:42:38,761 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:42:39,769 INFO spawned: 'laravel-server' with pid 131
+2025-04-16 00:42:40,771 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:42:55,602 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:42:56,609 INFO spawned: 'laravel-server' with pid 135
+2025-04-16 00:42:57,611 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:43:12,616 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:43:13,623 INFO spawned: 'laravel-server' with pid 139
+2025-04-16 00:43:14,626 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:43:28,383 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:43:29,390 INFO spawned: 'laravel-server' with pid 143
+2025-04-16 00:43:30,393 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:43:44,851 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:43:45,859 INFO spawned: 'laravel-server' with pid 147
+2025-04-16 00:43:46,862 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:44:02,339 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:44:03,346 INFO spawned: 'laravel-server' with pid 151
+2025-04-16 00:44:04,349 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:44:18,708 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:44:19,716 INFO spawned: 'laravel-server' with pid 155
+2025-04-16 00:44:20,719 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:44:35,072 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:44:36,079 INFO spawned: 'laravel-server' with pid 159
+2025-04-16 00:44:37,081 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:44:51,800 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:44:52,809 INFO spawned: 'laravel-server' with pid 163
+2025-04-16 00:44:53,810 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:45:08,801 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:45:09,809 INFO spawned: 'laravel-server' with pid 167
+2025-04-16 00:45:10,811 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:45:25,696 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:45:26,704 INFO spawned: 'laravel-server' with pid 171
+2025-04-16 00:45:27,707 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:45:45,832 WARN exited: laravel-server (exit status 1; not expected)
+2025-04-16 00:45:46,851 INFO spawned: 'laravel-server' with pid 175
+2025-04-16 00:45:47,862 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:45:50,866 WARN received SIGQUIT indicating exit request
+2025-04-16 00:45:50,867 INFO waiting for laravel-server, laravel-vite to die
+2025-04-16 00:45:51,871 WARN stopped: laravel-vite (terminated by SIGTERM)
+2025-04-16 00:45:52,874 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 00:53:35,316 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 00:53:35,322 INFO supervisord started with pid 1
+2025-04-16 00:53:36,329 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 00:53:36,333 INFO spawned: 'vite' with pid 8
+2025-04-16 00:53:37,580 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:53:37,581 INFO success: vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:55:52,979 WARN received SIGQUIT indicating exit request
+2025-04-16 00:55:52,980 INFO waiting for laravel-server, vite to die
+2025-04-16 00:55:53,981 WARN stopped: vite (terminated by SIGTERM)
+2025-04-16 00:55:54,983 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 00:55:59,327 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 00:55:59,334 INFO supervisord started with pid 1
+2025-04-16 00:56:00,342 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 00:56:00,348 INFO spawned: 'vite' with pid 8
+2025-04-16 00:56:01,695 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 00:56:01,695 INFO success: vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 01:04:29,140 WARN received SIGQUIT indicating exit request
+2025-04-16 01:04:29,145 INFO waiting for laravel-server, vite to die
+2025-04-16 01:04:30,149 WARN stopped: vite (terminated by SIGTERM)
+2025-04-16 01:04:31,156 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 01:10:39,521 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 01:10:39,530 INFO supervisord started with pid 1
+2025-04-16 01:10:40,547 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 01:10:40,571 INFO spawned: 'vite' with pid 8
+2025-04-16 01:10:42,200 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 01:10:42,201 INFO success: vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 01:12:53,289 WARN received SIGQUIT indicating exit request
+2025-04-16 01:12:53,290 INFO waiting for laravel-server, vite to die
+2025-04-16 01:12:54,292 WARN stopped: vite (terminated by SIGTERM)
+2025-04-16 01:12:55,295 WARN stopped: laravel-server (terminated by SIGTERM)
+2025-04-16 01:12:59,715 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-04-16 01:12:59,723 INFO supervisord started with pid 1
+2025-04-16 01:13:00,731 INFO spawned: 'laravel-server' with pid 7
+2025-04-16 01:13:00,737 INFO spawned: 'vite' with pid 8
+2025-04-16 01:13:02,104 INFO success: laravel-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 01:13:02,104 INFO success: vite entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-04-16 01:19:49,466 WARN received SIGQUIT indicating exit request
+2025-04-16 01:19:49,467 INFO waiting for laravel-server, vite to die
+2025-04-16 01:19:50,471 WARN stopped: vite (terminated by SIGTERM)
+2025-04-16 01:19:51,476 WARN stopped: laravel-server (terminated by SIGTERM)

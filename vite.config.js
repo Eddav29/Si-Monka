@@ -6,7 +6,7 @@ const path = require('path')
 export default defineConfig({
     resolve: {
         alias: {
-            '@': normalizePath(resolve(__dirname, 'resource')),
+            '@': normalizePath(resolve(__dirname, 'resources')),
             '~bootstrap': resolve(__dirname, 'node_modules/bootstrap'),
             '~bootstrap-icons': resolve(__dirname, 'node_modules/bootstrap-icons'),
             '~perfect-scrollbar': resolve(__dirname, 'node_modules/perfect-scrollbar'),
@@ -27,7 +27,7 @@ export default defineConfig({
         }),
     ],
     server:{
-        host: true,
+        host: '0.0.0.0',
         port: 5175,
         
         hmr:{

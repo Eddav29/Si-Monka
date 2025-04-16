@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PenggunaController;
+use App\Http\Controllers\Api\MonevKeuanganController;
+use App\Http\Controllers\Api\DataKeuanganController;
+use App\Http\Controllers\Api\ProgramController;
+use App\Http\Controllers\Api\JadwalProgramController;
+use App\Http\Controllers\Api\KeuanganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,24 +43,46 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     ]);
 
     // Keuangan routes
-    Route::prefix('keuangan')->name('pages.keuangan.')->group(function() {
-        Route::get('/monev-keuangan', function () {
-            return view('pages.keuangan.monev-keuangan');
-        })->name('monev-keuangan');
+    Route::resource('keuangan/monev-keuangan',MonevKeuanganController::class)->names([
+        'index' => 'pages.keuangan.monev-keuangan',
+        'show' => 'pages.keuangan.monev-keuangan.show',
+        'create' => 'pages.keuangan.monev-keuangan.create',
+        'store' => 'pages.keuangan.monev-keuangan.store',
+        'edit' => 'pages.keuangan.monev-keuangan.edit',
+        'update' => 'pages.keuangan.monev-keuangan.update',
+        'destroy' => 'pages.keuangan.monev-keuangan.destroy',
+    ]);
 
-        Route::get('/data-keuangan', function () {
-            return view('pages.keuangan.data-keuangan');
-        })->name('data-keuangan');
-    });
+    Route::resource('keuangan/data-keuangan', DataKeuanganController::class)->names([
+        'index' => 'pages.keuangan.data-keuangan',
+        'show' => 'pages.keuangan.data-keuangan.show',
+        'create' => 'pages.keuangan.data-keuangan.create',
+        'store' => 'pages.keuangan.data-keuangan.store',
+        'edit' => 'pages.keuangan.data-keuangan.edit',
+        'update' => 'pages.keuangan.data-keuangan.update',
+        'destroy' => 'pages.keuangan.data-keuangan.destroy',
+    ]);
 
     // Program route
-    Route::get('/program', function () {
-        return view('pages.program');
-    })->name('program');
+    Route::resource('program', ProgramController::class)->names([
+        'index' => 'pages.program',
+        'show' => 'pages.program.show',
+        'create' => 'pages.program.create',
+        'store' => 'pages.program.store',
+        'edit' => 'pages.program.edit',
+        'update' => 'pages.program.update',
+        'destroy' => 'pages.program.destroy',
+    ]);
 
     // Jadwal program route
-    Route::get('/jadwal-program', function () {
-        return view('pages.jadwal-program');
-    })->name('pages.jadwal-program');
+    Route::resource('jadwal-program', JadwalProgramController::class)->names([
+        'index' => 'pages.jadwal-program',
+        'show' => 'pages.jadwal-program.show',
+        'create' => 'pages.jadwal-program.create',
+        'store' => 'pages.jadwal-program.store',
+        'edit' => 'pages.jadwal-program.edit',
+        'update' => 'pages.jadwal-program.update',
+        'destroy' => 'pages.jadwal-program.destroy',
+    ]);
 
 });
