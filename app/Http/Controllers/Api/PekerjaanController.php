@@ -113,7 +113,7 @@ class PekerjaanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
         DB::beginTransaction();
         try {
@@ -136,78 +136,92 @@ class PekerjaanController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Validation failed',
-                    'errors' => $validator->errors()
-                ], 422);
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
             }
 
             $validated = $validator->validated();
             $validated['user_id'] = Auth::user()->id; // Assign the authenticated user ID
 
             if (!$validated['user_id']) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Authentication required',
-                ], 401);
+                return redirect()->back()->with('error', 'Authentication required');
             }
 
             $pekerjaan = Pekerjaan::create($validated);
 
             DB::commit();
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Pekerjaan created successfully',
-                'data' => $pekerjaan
-            ], 201);
+            
+            // Check if request expects JSON response
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Pekerjaan created successfully',
+                    'data' => $pekerjaan
+                ], 201);
+            }
+            
+            // For web requests, redirect to the index page with success message
+            return redirect()->route('pages.pekerjaan')
+                ->with('success', 'Pekerjaan created successfully');
+                
         } catch (Exception $e) {
             DB::rollBack();
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Failed to create pekerjaan',
-                'error' => $e->getMessage()
-            ], 500);
+            
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Failed to create pekerjaan',
+                    'error' => $e->getMessage()
+                ], 500);
+            }
+            
+            return redirect()->back()
+                ->with('error', 'Failed to create pekerjaan: ' . $e->getMessage())
+                ->withInput();
         }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id): JsonResponse
+    public function show(string $id): Response
     {
         try {
-            $pekerjaan = Pekerjaan::with(['user', 'keuangan', 'program', 'monevKeuangan'])->findOrFail($id);
-            
-            return response()->json([
-                'status' => 'success',
-                'data' => $pekerjaan
+            $pekerjaan = Pekerjaan::findOrFail($id);
+
+            return response()->view('pages.pekerjaan.show', [
+                'pekerjaan' => $pekerjaan // Pass pekerjaan data to the view
             ]);
         } catch (Exception $e) {
-            return response()->json([
+            return response()->view('pages.pekerjaan', [
                 'status' => 'error',
                 'message' => $e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException 
                     ? 'Pekerjaan not found' 
                     : 'Failed to retrieve pekerjaan',
-                'error' => $e->getMessage()
-            ], $e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException ? 404 : 500);
+            ], 404);
         }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): JsonResponse
+    public function update(Request $request, string $id)
     {
         DB::beginTransaction();
         try {
             $pekerjaan = Pekerjaan::find($id);
             
             if (!$pekerjaan) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Pekerjaan not found'
-                ], 404);
+                if ($request->expectsJson()) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Pekerjaan not found'
+                    ], 404);
+                }
+                
+                return redirect()->route('pages.pekerjaan')
+                    ->with('error', 'Pekerjaan not found');
             }
 
             $validator = Validator::make($request->all(), [
@@ -229,61 +243,99 @@ class PekerjaanController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Validation failed',
-                    'errors' => $validator->errors()
-                ], 422);
+                if ($request->expectsJson()) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Validation failed',
+                        'errors' => $validator->errors()
+                    ], 422);
+                }
+                
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
             }
 
             $pekerjaan->update($validator->validated());
 
             DB::commit();
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Pekerjaan updated successfully',
-                'data' => $pekerjaan
-            ]);
+            
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Pekerjaan updated successfully',
+                    'data' => $pekerjaan
+                ]);
+            }
+            
+            return redirect()->route('pages.pekerjaan')
+                ->with('success', 'Pekerjaan updated successfully');
+                
         } catch (Exception $e) {
             DB::rollBack();
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Failed to update pekerjaan',
-                'error' => $e->getMessage()
-            ], 500);
+            
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Failed to update pekerjaan',
+                    'error' => $e->getMessage()
+                ], 500);
+            }
+            
+            return redirect()->back()
+                ->with('error', 'Failed to update pekerjaan: ' . $e->getMessage())
+                ->withInput();
         }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): JsonResponse
+    public function destroy(Request $request, string $id)
     {
         DB::beginTransaction();
         try {
             $pekerjaan = Pekerjaan::find($id);
             
             if (!$pekerjaan) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Pekerjaan not found'
-                ], 404);
+                if ($request->expectsJson()) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Pekerjaan not found'
+                    ], 404);
+                }
+                
+                return redirect()->route('pages.pekerjaan')
+                    ->with('error', 'Pekerjaan not found');
             }
 
             $pekerjaan->delete();
             
             DB::commit();
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Pekerjaan deleted successfully'
-            ]);
+            
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Pekerjaan deleted successfully'
+                ]);
+            }
+            
+            return redirect()->route('pages.pekerjaan')
+                ->with('success', 'Pekerjaan deleted successfully');
+                
         } catch (Exception $e) {
             DB::rollBack();
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Failed to delete pekerjaan',
-                'error' => $e->getMessage()
-            ], 500);
+            
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Failed to delete pekerjaan',
+                    'error' => $e->getMessage()
+                ], 500);
+            }
+            
+            return redirect()->route('pages.pekerjaan')
+                ->with('error', 'Failed to delete pekerjaan: ' . $e->getMessage());
         }
     }
 
@@ -302,10 +354,9 @@ class PekerjaanController extends Controller
     {
         try {
             $pekerjaan = Pekerjaan::findOrFail($id);
-            
+
             return response()->view('pages.pekerjaan.edit', [
-                'status' => 'success',
-                'data' => $pekerjaan
+                'pekerjaan' => $pekerjaan // Pass pekerjaan data to the view
             ]);
         } catch (Exception $e) {
             return response()->view('pages.pekerjaan.index', [
