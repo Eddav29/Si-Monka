@@ -125,23 +125,18 @@ class PenggunaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): JsonResponse
+    public function show(string $id): Response
     {
         try {
+
             $user = User::findOrFail($id);
             
-            return response()->json([
+            return response()->view('pages.pengguna.show', [
+                'data' => $user,
                 'status' => 'success',
-                'data' => $user
             ]);
         } catch (Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => $e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException 
-                    ? 'User not found' 
-                    : 'Failed to retrieve user',
-                'error' => $e->getMessage()
-            ], $e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException ? 404 : 500);
+            return redirect()->route('pengguna.index')->with('error', 'Pengguna tidak ditemukan');
         }
     }
 
